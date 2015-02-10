@@ -31,6 +31,8 @@ To overcome these warnings this lint check is aware of a certain type of text wh
 
 To express the usage of a placeholder, a placeholder is prefixed by „:“. The lint check won’t emit a warning if it detects a placeholder.
 
+*Note: Feel free to fork this project and change the syntax to whatever suits your needs.*
+
 Example:
 ```xml
 android:text=":OrderNumber"
