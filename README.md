@@ -6,6 +6,8 @@ This project features a custom lint check for **placerholders** in your XML layo
 
 A placeholder is a text which is used at design time but is replaced by a particular value at runtime. Assume you have a TextView which for example displays an order number. The order number is not present at design time but will be displayed at runtime.
 
+![Screenshot illustrating usage of placeholder.](/static/Screenshot1.png)
+
 ## Why is it needed?
 
 While it's definitely bad practice to hard code strings into your layouts there are several good reasons where it make sense to use placeholder:
@@ -25,6 +27,8 @@ Placeholders are used for layout purpose, they should fill a certain area of the
 
 Android’s default checks already feature a check for hardcoded values. It basically checks if provided values in *android:text* and android:hint attributes start with *@string/*. This results in a majority of warnings, if you decide to use placeholders in your layouts.
 
+![Screenshot showing hardcoded string warning.](/static/Screenshot2.png)
+
 To overcome these warnings this lint check is aware of a certain type of text which it also accepts: placeholder.
 
 ##What’s the syntax of a placeholder?
@@ -35,8 +39,5 @@ To express the usage of a placeholder, a placeholder is prefixed by „:“. The
 
 Example:
 ```xml
-android:text=":OrderNumber"
+<TextView android:text=":OrderNumber" />
 ```
-
-
-
