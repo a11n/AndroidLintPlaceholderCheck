@@ -41,3 +41,28 @@ Example:
 ```xml
 <TextView android:text=":OrderNumber" />
 ```
+
+##How to install and run the custom check?
+
+In order to install this check you need to place the compiled jar in your user's *android/lint/* directory.
+
+On Unix based systems you can simply use ```./buildAndInstall``` for your convenience.
+
+* Compile the rule
+```shell
+./gradlew lintrules:assemble
+```
+
+* Copy lintrules.jar from *lintrules/build/libs/lintrules.jar* to your user's *android/lint/* directory.
+Note: On Unix based systems this is most likely *~/.android/lint/*
+```shell
+mkdir ~/.android/lint/
+cp lintrules/build/libs/lintrules.jar ~/.android/lint/
+```
+
+* Since the Android tools consider the above mentioned *lint* directory when executing checks you are all set to run the custom check for your project's layout files.
+However, since the default **"HardcodedValue"** check is still in place you may want to ignore the default **"HardcodedValue"** check to avoid I18N warnings. Since this custom check is an extension of the default "HardcodedValue" check you won't loose any functionality.
+Run this check:
+```shell
+lint --check HardcodedValueWithPlaceholder
+```
