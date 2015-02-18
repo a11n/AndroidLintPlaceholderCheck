@@ -61,8 +61,8 @@ cp lintrules/build/libs/lintrules.jar ~/.android/lint/
 ```
 
 * Since the Android tools consider the above mentioned *lint* directory when executing checks you are all set to run the custom check for your project's layout files.
-However, since the default **"HardcodedValue"** check is still in place you may want to ignore the default **"HardcodedValue"** check to avoid I18N warnings. Since this custom check is an extension of the default "HardcodedValue" check you won't loose any functionality.
+However, since the default **"HardcodedText"** check is still in place you may want to ignore the default **"HardcodedText"** check to avoid I18N warnings. Since this custom check is an extension of the default "HardcodedText" check you won't loose any functionality.
 Run this check:
 ```shell
-lint --check HardcodedValueWithPlaceholder
+lint --check HardcodedTextWithPlaceholder
 ```
