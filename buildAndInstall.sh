@@ -1,11 +1,11 @@
 #!/bin/sh
 
 # Build .jar
-./gradlew lintrules:assemble
+./gradlew clean assemble
 
 # Install
 if [ ! -d "~/.android/lint/" ]; then
   mkdir ~/.android/lint/
 fi
 
-cp lintrules/build/libs/lintrules.jar ~/.android/lint/
+cp build/libs/* ~/.android/lint/

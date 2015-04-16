@@ -50,14 +50,14 @@ On Unix based systems you can simply use ```./buildAndInstall``` for your conven
 
 * Compile the rule
 ```shell
-./gradlew lintrules:assemble
+./gradlew clean assemble
 ```
 
-* Copy lintrules.jar from *lintrules/build/libs/lintrules.jar* to your user's *android/lint/* directory.
+* Copy AndroidLintPlaceholderCheck-1.0.jar from *build/libs/* to your user's *android/lint/* directory.
 Note: On Unix based systems this is most likely *~/.android/lint/*
 ```shell
 mkdir ~/.android/lint/
-cp lintrules/build/libs/lintrules.jar ~/.android/lint/
+cp build/libs/* ~/.android/lint/
 ```
 
 * Since the Android tools consider the above mentioned *lint* directory when executing checks you are all set to run the custom check for your project's layout files.
