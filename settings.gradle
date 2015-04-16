@@ -1,1 +1,1 @@
-include ':lintrules'
+rootProject.name = 'AndroidLintPlaceholderCheck'
