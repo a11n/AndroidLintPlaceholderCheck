@@ -1,21 +1,35 @@
 package de.ad.android.tools.lint;
 
-import de.ad.android.tools.lint.test.DetectorTest;
+import com.ad.android.tools.lint.test.Lint;
+import com.android.tools.lint.Warning;
+import java.util.List;
+import org.junit.Rule;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class HardcodedValuesDetectorTest extends DetectorTest {
+public class HardcodedValuesDetectorTest {
+  @Rule public Lint lint = new Lint();
+  
   @Test
   public void test() throws Exception {
-    String result = analyze("res/layout/test.xml");
+    lint.setFiles("res/layout/test.xml");
+    lint.setIssues(HardcodedValuesDetector.ISSUE);
     
-    assertThat(result).isEqualTo("res/layout/test.xml:15: Warning: [I18N] Hardcoded string \"Hardcoded text\", should use @string resource or placeholder :string [HardcodedTextWithPlaceholder]\n"
-        + "      android:text=\"Hardcoded text\"\n"
-        + "      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
-        + "res/layout/test.xml:37: Warning: [I18N] Hardcoded string \"Hardcoded hint\", should use @string resource or placeholder :string [HardcodedTextWithPlaceholder]\n"
-        + "      android:layout_gravity=\"center_horizontal\" android:hint=\"Hardcoded hint\"\n"
-        + "                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
-        + "0 errors, 2 warnings\n");
+    lint.analyze();
+    
+    List<Warning> warnings = lint.getWarnings();
+    
+    assertThat(warnings).hasSize(2);
+    
+    assertThat(warnings.get(0).message).isEqualTo(
+        "[I18N] Hardcoded string \"Hardcoded text\", should use `@string` resource or placeholder `:string`");
+    assertThat(warnings.get(0).file.getPath()).endsWith("res/layout/test.xml");
+    assertThat(warnings.get(0).line).isEqualTo(14);
+
+    assertThat(warnings.get(1).message).isEqualTo(
+        "[I18N] Hardcoded string \"Hardcoded hint\", should use `@string` resource or placeholder `:string`");
+    assertThat(warnings.get(1).file.getPath()).endsWith("res/layout/test.xml");
+    assertThat(warnings.get(1).line).isEqualTo(36);
   }
 }
