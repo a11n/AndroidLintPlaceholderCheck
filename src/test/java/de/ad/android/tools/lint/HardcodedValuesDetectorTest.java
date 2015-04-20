@@ -1,6 +1,6 @@
 package de.ad.android.tools.lint;
 
-import com.ad.android.tools.lint.test.Lint;
+import com.ad.android.tools.lint.Lint;
 import com.android.tools.lint.Warning;
 import java.util.List;
 import org.junit.Rule;
