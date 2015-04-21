@@ -6,11 +6,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CustomIssueRegistry extends IssueRegistry {
-    public CustomIssueRegistry() {}
+  public CustomIssueRegistry() {
+  }
 
-    @Override
-    public List<Issue> getIssues() {
-        return Arrays.asList(HardcodedValuesDetector.ISSUE);
-    }
-
+  @Override
+  public List<Issue> getIssues() {
+    return Arrays.asList(ExtendedHardcodedValuesDetector.ISSUE);
+  }
 }

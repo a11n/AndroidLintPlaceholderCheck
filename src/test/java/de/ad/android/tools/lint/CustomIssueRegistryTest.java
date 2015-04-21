@@ -13,6 +13,6 @@ public class CustomIssueRegistryTest {
 
     List<Issue> actual = customIssueRegistry.getIssues();
 
-    assertThat(actual).containsExactly(HardcodedValuesDetector.ISSUE);
+    assertThat(actual).containsExactly(ExtendedHardcodedValuesDetector.ISSUE);
   }
 }

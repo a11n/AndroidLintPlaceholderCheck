@@ -8,13 +8,13 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class HardcodedValuesDetectorTest {
+public class ExtendedHardcodedValuesDetectorTest {
   @Rule public Lint lint = new Lint();
   
   @Test
   public void test() throws Exception {
     lint.setFiles("res/layout/test.xml");
-    lint.setIssues(HardcodedValuesDetector.ISSUE);
+    lint.setIssues(ExtendedHardcodedValuesDetector.ISSUE);
     
     lint.analyze();
     
