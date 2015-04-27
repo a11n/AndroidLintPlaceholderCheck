@@ -1,1 +1,1 @@
-rootProject.name = 'AndroidLintPlaceholderCheck'
+include ':aarWrapper'
