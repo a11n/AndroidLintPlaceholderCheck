@@ -16,6 +16,7 @@ dependencies {
 }
 
 jar {
+    archiveName 'lint.jar'
     manifest {
         attributes 'Lint-Registry': 'de.ad.android.tools.lint.CustomIssueRegistry'
     }
