@@ -1,5 +1,8 @@
 # AndroidLintPlaceholderCheck
 
+## Deprecated
+**This project is deprecated. There will be no new development on this project. Please use [designtime layout attributes](http://tools.android.com/tips/layout-designtime-attributes) instead.**
+
 This project features a custom lint check for **placerholders** in your XML layout files.
 
 ## What is a placeholder?
